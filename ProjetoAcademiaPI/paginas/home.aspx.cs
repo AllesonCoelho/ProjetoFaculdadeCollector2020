@@ -23,6 +23,7 @@ public partial class paginas_home : System.Web.UI.Page
             int tpu = Convert.ToInt32(Session["tpu_tipo_usuario"]);
             if (tpu == 1)
             {
+
                 Response.Redirect("admin/tabelas/CarregarUsuario.aspx");
             }
             if (tpu == 2)
@@ -32,7 +33,7 @@ public partial class paginas_home : System.Web.UI.Page
         }
         else
         {
-            Response.Redirect("");
+            Response.Redirect("Erro.aspx");
         }
     }
 }

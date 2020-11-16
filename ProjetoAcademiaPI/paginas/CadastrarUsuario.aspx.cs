@@ -5,6 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+using System.Text;
+using System.IO;
+using System.Security.Cryptography;
 public partial class paginas_CadastrarUsuario : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
@@ -42,6 +45,15 @@ public partial class paginas_CadastrarUsuario : System.Web.UI.Page
                 break;
         }
 
+        UnicodeEncoding UE = new UnicodeEncoding();
+        byte[] HashValue, MessageBytes = UE.GetBytes(txbSenha.Text);
+        SHA512Managed SHhash = new SHA512Managed();
+        string strHex = "";
+        HashValue = SHhash.ComputeHash(MessageBytes);
+        foreach (byte b in HashValue)
+        {
+            strHex += String.Format("{0:x2}", b);
+        }
     }
 
     void Limpar()

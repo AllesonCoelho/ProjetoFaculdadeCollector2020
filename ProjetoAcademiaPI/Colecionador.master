@@ -417,7 +417,6 @@
             </div>
         </section>
     </div>
-</div>
         <div class="coontainer">
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
         
